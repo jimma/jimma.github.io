@@ -1,0 +1,25 @@
+# Site settings
+title: JM'sWhat's 
+imageurl: "https://source.unsplash.com/category/nature/2600x500"
+email: ema@apache.org
+copyright_name:
+description: "A place to put my study log and comment"
+baseurl: ""
+url: "http://jimma.github.io"
+twitter_username: jimma
+github_username:  jimma
+facebook_username: jimma  
+email_username:  Jim Ma
+
+# Google Analytics
+# To enable google analytics, uncomment below line with a valid Google Tracking ID
+# google_tracking_id:
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]
