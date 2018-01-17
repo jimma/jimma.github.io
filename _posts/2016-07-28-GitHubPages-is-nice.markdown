@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout:     page
 title:      "Github page looks nice"
 subtitle:   ""
 date:       2016-07-28 12:00:00

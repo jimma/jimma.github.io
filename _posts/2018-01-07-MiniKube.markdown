@@ -1,0 +1,45 @@
+---
+layout:     post
+title:      "Config more things to start your Minikube on Fedora "
+subtitle:   ""
+date:       2018-01-07 12:32:50
+author:     "Jim Ma"
+header-img: "img/bg1.jpg"
+---
+When you want to try the kubenetes, the most easy way is start kubenetes cluseter with a command "minikube start". If you don't want to start all these things in vm and add a "--vm-driver=none" flag to start minikube, the error will probably be printed to indicate that kubelet's cgroup is different from dockers' systemd:
+
+```
+ failed to create kubelet: misconfiguration: kubelet cgroup driver: "cgroupfs" is different from docker cgroup driver: "systemd".
+ ```
+
+ minikube start provides the "--extra-config" to configure different things to kubelet, apiserver and all other components:
+
+ ```
+Usage:
+  minikube start [flags]
+
+Flags:
+      --apiserver-name string           The apiserver name which is used in the generated certificate for localkube/kubernetes.  This can be used if you want to make the apiserver available from outside the machine (default "minikubeCA")
+      --cache-images                    If true, cache docker images for the current bootstrapper and load them into the machine. (default true)
+      --container-runtime string        The container runtime to be used
+      --cpus int                        Number of CPUs allocated to the minikube VM (default 2)
+      --disable-driver-mounts           Disables the filesystem mounts provided by the hypervisors (vboxfs, xhyve-9p)
+      --disk-size string                Disk size allocated to the minikube VM (format: <number>[<unit>], where unit = b, k, m or g) (default "20g")
+      --dns-domain string               The cluster dns domain name used in the kubernetes cluster (default "cluster.local")
+      --docker-env stringArray          Environment variables to pass to the Docker daemon. (format: key=value)
+      --docker-opt stringArray          Specify arbitrary flags to pass to the Docker daemon. (format: key=value)
+      --extra-config ExtraOption        A set of key=value pairs that describe configuration that may be passed to different components.
+		The key should be '.' separated, and the first part before the dot is the component to apply the configuration to.
+		Valid components are: kubelet, apiserver, controller-manager, etcd, proxy, scheduler.
+```
+
+All the kublet options you can pass with "--extra-config" are defined in KubeletConfiguration.go:
+https://godoc.org/k8s.io/kubernetes/pkg/kubelet/apis/kubeletconfig#KubeletConfiguration
+
+So here we pass the cgroup-driver=systemd to kubelet with:
+
+```
+minikube --vm-driver=none --extra-config=kubelet.CgroupDriver=systemd --extra-config=kubelet.EvictionHard="memory.available<500Mi,nodefs.available<100Mi,imagefs.available<100Mi" start
+```
+
+If you start minikube in not free space left disk, the "DiskPressure" eviction signal alarms and no pod started in you node. Add a "kubelet.EvicationHard" option as above to clam down kubelet.   
