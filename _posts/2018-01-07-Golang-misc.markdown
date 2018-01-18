@@ -118,7 +118,7 @@ Run pass the interface to the function, the result will tell you employee is not
 ```
 Person's ID : 100010
 Person's ID : 100010
-Input : "{{Changed male 100010} MS 10001}" isn't a PrintIDPerson
+Input : "\{\{Changed male 100010\} MS 10001\}" isn't a PrintIDPerson
 Employee's ID : 10001
 ```
 
