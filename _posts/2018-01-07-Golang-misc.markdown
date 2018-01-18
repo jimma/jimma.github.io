@@ -118,7 +118,7 @@ Run pass the interface to the function, the result will tell you employee is not
 ```
 Person's ID : 100010
 Person's ID : 100010
-Input : {{Changed male 100010} MS 10001} isn't a PrintIDPerson
+Input : "{{Changed male 100010} MS 10001}" isn't a PrintIDPerson
 Employee's ID : 10001
 ```
 
@@ -127,4 +127,4 @@ Employee's ID : 10001
 * Interface is defined by function.
 * Function's receiver can be value or pointer. If it's a large struct, use pointer receiver.
   Or if you don't know too much, pointer receiver could be good(?).
-* Interface is a type. It will check the passed type, if passed object is a pointer and the function's receiver is a pointer. Then this passed object is a type of this interface. If the function's receiver is value object, the passed pointer object or value object can both be casted to an interface type. 
+* Interface is a type. It will check the passed type, if passed object is a pointer and the function's receiver is a pointer. Then this passed object is a type of this interface. If the function's receiver is value object, the passed pointer object or value object can both be casted to an interface type.
