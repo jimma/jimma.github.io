@@ -18,7 +18,7 @@ composition. Let's take a simple Person, Employee example. In object oriented
 wolrd, the thing comes in your mind that employee should extend person. To implement
 this with Go, Employee struct type will be composed with a Person type like the
 following code snippet demonstrates:
-``` go
+```
 type Person struct {
 	Name   string
 	Gender string
@@ -39,7 +39,7 @@ Is Person type explicitly defined here OK ? The answer is NO and Golang doesn't 
 
 ## Receiver
 The receiver is following with go keyword **func** struct type you want to add the function to:  
-``` go
+```
 func (e *Employee) GetEmployeeID() int32 {
 	return e.EmployeeID
 }
@@ -49,7 +49,7 @@ func (e *Employee) PrintID() {
 }
 ```
 Receiver can be a pointer or a value receiver. To find out what's the difference between these two receive type, go to look at [this page](https://nathanleclaire.com/blog/2014/08/09/dont-get-bitten-by-pointer-vs-non-pointer-method-receivers-in-golang/). Pointer reciver allows function to modify the object which it points to and in function invocation it doesn't need to copy this object:
-``` go
+```
 func (p *Person) ChangeName() string {
 	p.Name = "Changed"
 	return p.Name
@@ -74,7 +74,7 @@ a type(object).
 
 ## Interface type
 If you want to make a java object implement interface, you have to use java key word **implements**. In Go, interface is defined outside of function or object :
-```go
+```
 type PrintIDPerson interface {
 	PrintID()
 }
@@ -84,7 +84,7 @@ func PrintPersonID(pidPerson PrintIDPerson) {
 }
 ```
 This several lines code tells all object has PrintID() function is a PrintIDPerson, and PrintPersonID function can accept a PrintIDPerson object to call the interface method PrintID. So all Employee objects are PrintIDPerson type, and Person object too. Well it depends. For example:
-``` go
+```
 1 person := object.Person{"John", "male", 100010}
 2 employee := object.Employee{person, "MS", 10001}
 3 PrintPersonID(&person)
@@ -106,7 +106,7 @@ func PrintPersonIDToConsole(in interface{}) {
 }
 ```
 Type assertion is the easy thing to tell you: **in.(object.PrintIDPerson)**  if **in** is a type of object.PrintIDPerson.
-```go
+```
 person := object.Person{"John", "male", 100010}
 employee := object.Employee{person, "MS", 10001}
 PrintPersonIDToConsole(person)
