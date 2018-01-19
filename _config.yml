@@ -1,5 +1,5 @@
 # Site settings
-title: JM'sWhat's 
+title: JM'sWhat's
 imageurl: "img/bg1.jpg"
 email: ema@apache.org
 copyright_name:
@@ -8,7 +8,7 @@ baseurl: ""
 url: "http://jimma.github.io"
 twitter_username: jimma
 github_username:  jimma
-facebook_username: jimma  
+facebook_username: jimma
 email_username:  Jim Ma
 
 # Google Analytics
@@ -17,7 +17,17 @@ email_username:  Jim Ma
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+#highlighter: roug
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: java
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+
 permalink: pretty
 paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
