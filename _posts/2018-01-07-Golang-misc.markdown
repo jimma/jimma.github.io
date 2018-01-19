@@ -19,11 +19,14 @@ wolrd, the thing comes in your mind that employee should extend person. To imple
 this with Go, Employee struct type will be composed with a Person type like the
 following code snippet demonstrates:
 ```go
-type Person struct {
-	Name   string
-	Gender string
-	Id     int32
-}
+ type Person struct {
+
+	 Name   string
+
+	 Gender string
+
+	 Id     int32
+ }
 
 type Employee struct {
 	Person
@@ -96,14 +99,15 @@ The line 6 can't be compiled, because it isn't a correct PrintIDPerson. Why? Go 
 at Employee's PrintID() function, the receiver is a pointer. **employee** here is a value object. But it's strange thing is line 3 and line 4 both work. This is all because the PrintID()'s receive is a value object Person.
 How can we know if passed object is other type of interface ? Go's reflection is the good thing to help figure this out :
 ```golang
-func PrintPersonIDToConsole(in interface{}) {
-	pidPerson, ok := in.(object.PrintIDPerson)
-	if ok {
-		pidPerson.PrintID()
-	} else {
-		fmt.Printf("Input : %v isn't a PrintIDPerson\n", in)
-	}
-}
+ func PrintPersonIDToConsole(in interface{}) {
+
+	 pidPerson, ok := in.(object.PrintIDPerson)
+	 if ok {
+		 pidPerson.PrintID()
+	 } else {
+		 fmt.Printf("Input : %v isn't a PrintIDPerson\n", in)
+	 }
+ }
 ```
 Type assertion is the easy thing to tell you: **in.(object.PrintIDPerson)**  if **in** is a type of object.PrintIDPerson.
 ```
