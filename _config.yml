@@ -17,7 +17,7 @@ email_username:  Jim Ma
 
 # Build settings
 markdown: kramdown
-#highlighter: roug
+#highlighter: rouge
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
@@ -26,7 +26,7 @@ kramdown:
     span:
       line_numbers: false
     block:
-      line_numbers: true
+      line_numbers: false
 
 permalink: pretty
 paginate: 5
