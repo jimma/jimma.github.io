@@ -9,11 +9,15 @@ header-img: "img/bg1.jpg"
 Goroutine is Golang's concurrency programming thread or lightweight thread to run function concurrently. 
 From Golang's documentation : 
 ```
-They're called goroutines because the existing terms—threads, coroutines, processes, and so on—convey inaccurate connotations. A goroutine has a simple model: it is a function executing concurrently with other goroutines in the same address space. It is lightweight, costing little more than the allocation of stack space. And the stacks start small, so they are cheap, and grow by allocating (and freeing) heap storage as required.
+They're called goroutines because the existing terms—threads, coroutines, processes, and so on—convey inaccurate 
+connotations. A goroutine has a simple model: it is a function executing concurrently with other goroutines in 
+the same address space. It is lightweight, costing little more than the allocation of stack space. And the stacks 
+start small, so they are cheap, and grow by allocating (and freeing) heap storage as required.
+Goroutines are multiplexed onto multiple OS threads so if one should block, such as while waiting for I/O, others 
+continue to run. Their design hides many of the complexities of thread creation and management.
 
-Goroutines are multiplexed onto multiple OS threads so if one should block, such as while waiting for I/O, others continue to run. Their design hides many of the complexities of thread creation and management.
-
-Prefix a function or method call with the go keyword to run the call in a new goroutine. When the call completes, the goroutine exits, silently. (The effect is similar to the Unix shell's & notation for running a command in the background.)
+Prefix a function or method call with the go keyword to run the call in a new goroutine. When the call completes, 
+the goroutine exits, silently. (The effect is similar to the Unix shell's & notation for running a command in the background.)
 ```
 Unlike the java's thread model based on OS thread, golang has its own lightwieght/costing little thing and can run more threads than java language. Write concurrent programming is simple , the only thing you need to do is add "go" before you function:
 ```
