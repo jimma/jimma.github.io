@@ -1,4 +1,4 @@
---
+---
 layout:     post
 title:      "Golang misc part2"
 subtitle:   "mutex and channel"
