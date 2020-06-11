@@ -479,6 +479,14 @@ Or provides layers with CLI :
 galleon.sh install wildfly:current --layers=cdi,jaxrs,jpa --dir=/path/to/wildfly
 ```
 
+```
+galleon.sh  install wildfly:current --layers=undertow --dir=/path/to/wildfly
+```
+
+```
+galleon.sh  install wildfly:current --layers=web-server --dir=/path/to/wildfly
+```
+
 ## Summary
 
 When move to microservices/cloud architecture from monolith, we usually want the binary is as small as possible. This requires the wildfly or EAP can be trimmed and only includes the application needs. Galleon can help with this. If you want to slim or trim the wildfly distribution or even provide your custom layer, please give gallen a try. 
