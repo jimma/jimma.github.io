@@ -230,9 +230,10 @@ Galleon follows these steps to generate all configuration file:
     </annotation>
     
   ``` 
- - save all batch ModelNode operation or non batch ModelNode operation in a script file like : 
+ - save all batch ModelNode operation or non batch ModelNode operation in a script file like: 
+  
   ```
-    standalone
+  standalone
 --internal-empty-config,--admin-only,--internal-remove-config,--server-config,standalone-microprofile-ha.xml
 batch
 {"operation":"add","address":[{"interface":"public"}],"inet-address":"${jboss.bind.address:127.0.0.1}"}
@@ -276,6 +277,7 @@ run-batch
   The full script file can be found [here](https://gist.github.com/jimma/8fbf69f029a69fdc534ee0fc5631b83d)
   
 -  start embedded server and execute this script to generate all configurations. This is the full command to run these operations and generate configuration file like standalone.xml:
+  
   ```
   [jdk1.8.0_162/jre/bin/java, -server, -cp, maven_repo/org/jboss/galleon/galleon-maven-plugin/4.2.5.Final/galleon-maven-plugin-4.2.5.Final.jar:maven_repo/org/jboss/galleon/galleon-core/4.2.5.Final/galleon-core-4.2.5.Final.jar:maven_repo/org/jboss/staxmapper/1.1.0.Final/staxmapper-1.1.0.Final.jar:maven_repo/org/jboss/galleon/galleon-maven-universe/4.2.5.Final/galleon-maven-universe-4.2.5.Final.jar:maven_repo/org/apache/maven/plugin-tools/maven-plugin-annotations/3.5/maven-plugin-annotations-3.5.jar:maven_repo/org/eclipse/aether/aether-util/1.1.0/aether-util-1.1.0.jar:maven_repo/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.jar:maven_repo/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar:/tmp/873ff52b-af6f-411b-81fe-441f4367d680/plugins/wildfly-galleon-plugins.jar:/tmp/873ff52b-af6f-411b-81fe-441f4367d680/resources/wildfly/wildfly-config-gen.jar:maven_repo/org/jboss/modules/jboss-modules/1.10.0.Final/jboss-modules-1.10.0.Final.jar:maven_repo/org/wildfly/core/wildfly-cli/11.0.0.Final/wildfly-cli-11.0.0.Final-client.jar, org.wildfly.galleon.plugin.server.ForkedEmbeddedUtil, /tmp/wfgp6707939363760510761sysprops, org.wildfly.galleon.plugin.config.generator.WfConfigGenerator, /home/jimma/code/wildfly/stage/wildfly/dist/target/wildfly-20.0.0.Beta1-SNAPSHOT, /tmp/873ff52b-af6f-411b-81fe-441f4367d680/tmp/forkedembedded.txt]
   ```
@@ -285,6 +287,7 @@ run-batch
 
  ```
  java, -server, -cp, maven_repo/org/wildfly/galleon-plugins/wildfly-galleon-maven-plugin/4.2.6.Final/wildfly-galleon-maven-plugin-4.2.6.Final.jar:maven_repo/org/wildfly/core/wildfly-embedded/12.0.0.Beta2/wildfly-embedded-12.0.0.Beta2.jar:maven_repo/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final.jar:maven_repo/org/jboss/modules/jboss-modules/1.10.0.Final/jboss-modules-1.10.0.Final.jar:maven_repo/org/wildfly/core/wildfly-controller-client/12.0.0.Beta2/wildfly-controller-client-12.0.0.Beta2.jar:maven_repo/org/jboss/jboss-dmr/1.5.0.Final/jboss-dmr-1.5.0.Final.jar:maven_repo/org/jboss/threads/jboss-threads/2.3.3.Final/jboss-threads-2.3.3.Final.jar:maven_repo/org/wildfly/common/wildfly-common/1.5.2.Final/wildfly-common-1.5.2.Final.jar:maven_repo/org/wildfly/galleon-plugins/wildfly-galleon-plugins/4.2.6.Final/wildfly-galleon-plugins-4.2.6.Final.jar:maven_repo/org/jboss/galleon/galleon-core/4.2.5.Final/galleon-core-4.2.5.Final.jar:maven_repo/org/jboss/staxmapper/1.1.0.Final/staxmapper-1.1.0.Final.jar:maven_repo/org/jboss/galleon/galleon-maven-plugin/4.2.5.Final/galleon-maven-plugin-4.2.5.Final.jar:maven_repo/org/eclipse/aether/aether-util/1.1.0/aether-util-1.1.0.jar:maven_repo/org/jboss/galleon/galleon-maven-universe/4.2.5.Final/galleon-maven-universe-4.2.5.Final.jar:maven_repo/org/apache/maven/plugin-tools/maven-plugin-annotations/3.5.2/maven-plugin-annotations-3.5.2.jar:maven_repo/org/wildfly/galleon-plugins/wildfly-config-gen/4.2.6.Final/wildfly-config-gen-4.2.6.Final.jar:maven_repo/org/wildfly/galleon-plugins/wildfly-feature-spec-gen/4.2.6.Final/wildfly-feature-spec-gen-4.2.6.Final.jar:maven_repo/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.jar:maven_repo/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:maven_repo/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0/org.eclipse.sisu.inject-0.3.0.jar:maven_repo/org/sonatype/sisu/sisu-guice/3.2.5/sisu-guice-3.2.5-no_aop.jar:maven_repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:maven_repo/com/google/guava/guava/16.0.1/guava-16.0.1.jar:maven_repo/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:maven_repo/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:maven_repo/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.jar:maven_repo/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar:maven_repo/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar:maven_repo/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.jar:maven_repo/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar:maven_repo/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar:maven_repo/org/codehaus/plexus/plexus-archiver/3.4/plexus-archiver-3.4.jar:maven_repo/org/codehaus/plexus/plexus-io/2.7.1/plexus-io-2.7.1.jar:maven_repo/commons-io/commons-io/2.5/commons-io-2.5.jar:maven_repo/org/apache/commons/commons-compress/1.11/commons-compress-1.11.jar:maven_repo/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:maven_repo/org/tukaani/xz/1.5/xz-1.5.jar:maven_repo/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.jar:maven_repo/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar:maven_repo/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar:maven_repo/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar:maven_repo/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar:maven_repo/commons-codec/commons-codec/1.6/commons-codec-1.6.jar:maven_repo/org/wildfly/maven/plugins/licenses-plugin/2.0.0.Final/licenses-plugin-2.0.0.Final.jar:maven_repo/org/apache/maven/maven-builder-support/3.3.1/maven-builder-support-3.3.1.jar:maven_repo/org/apache/maven/plugin-testing/maven-plugin-testing-harness/3.3.0/maven-plugin-testing-harness-3.3.0.jar, org.wildfly.galleon.plugin.server.ForkedEmbeddedUtil, /tmp/wfgp1019281718254681233sysprops, org.wildfly.galleon.plugin.featurespec.generator.FeatureSpecGenerator, wildfly/stage/wildfly/ee-galleon-pack/target/wildfly, /tmp/wfgp4280664821083887940standalone-specs, /tmp/wfgp2444550083207653964domain-specs
+ 
  ```
 
 The functional class **FeatureSpecGenerator** takes care of start an embedded server with the extensions configured :
@@ -342,6 +345,7 @@ The functional class **FeatureSpecGenerator** takes care of start an embedded se
 ```
 
 And execute :read-feature-description operation recursively to dump all info to a file with all feature description info like :
+
 ```
 "subsystem.jaxrs" =>
    {"name" => "subsystem.jaxrs",
@@ -353,6 +357,7 @@ And execute :read-feature-description operation recursively to dump all info to 
                  
                  "packages" => [{"package" => "org.jboss.resteasy.resteasy-validator-provider","optional" => true,"passive" => true},{"package" => "org.jboss.resteasy.resteasy-validator-provider-11","optional" => true,"passive" => true},{"package" => "org.jboss.resteasy.resteasy-json-binding-provider","optional" => true},{"package" => "com.fasterxml.jackson.datatype.jackson-datatype-jdk8","optional" => true},{"package" => "org.jboss.resteasy.resteasy-json-p-provider","optional" => true},{"package" => "org.jboss.resteasy.resteasy-multipart-provider","optional" => true},{"package" => "org.eclipse.microprofile.restclient","optional" => true},{"package" => "javax.ws.rs.api"},{"package" => "org.jboss.resteasy.resteasy-cdi","optional" => true,"passive" => true},{"package" => "org.jboss.resteasy.resteasy-jaxrs","optional" => true},{"package" => "org.jboss.resteasy.resteasy-client-microprofile","optional" => true},{"package" => "org.jboss.resteasy.resteasy-spring","optional" => true},{"package" => "javax.xml.bind.api"},{"package" => "javax.json.api"},{"package" => "org.codehaus.jackson.jackson-core-asl","optional" => true},{"package" => "org.jboss.resteasy.resteasy-jsapi","optional" => true},{"package" => "org.jboss.resteasy.resteasy-crypto","optional" => true},{"package" => "org.jboss.resteasy.resteasy-jettison-provider","optional" => true},{"package" => "org.jboss.resteasy.resteasy-jackson2-provider","optional" => true},{"package" => "org.jboss.resteasy.resteasy-yaml-provider","optional" => true},{"package" => "com.fasterxml.jackson.datatype.jackson-datatype-jsr310","optional" => true},{"package" => "org.jboss.resteasy.resteasy-atom-provider","optional" => true},{"package" => "org.jboss.resteasy.resteasy-jackson-provider","optional" => true},{"package" => "org.jboss.resteasy.resteasy-jaxb-provider","optional" => true},{"package" => "org.jboss.as.jaxrs"}],"children" => {}}
 ```
+
 The full content can be found from [here](https://gist.github.com/jimma/f5e982a19f0c0d42febd83a00874f22e/raw/55b0883a1bb458427493667ed46b34b213ea2a77/gistfile1.txt)
 
 The subsystem path address, parameter etc can be get from the ModelNode. The package is read from registration as each subystem add the RuntimePackage while create the subystem definition like what jaxrs subystem does:
@@ -387,7 +392,9 @@ The subsystem path address, parameter etc can be get from the ModelNode. The pac
                     RuntimePackageDependency.optional("org.jboss.resteasy.resteasy-jackson-provider"),
                     RuntimePackageDependency.optional("org.jboss.resteasy.resteasy-spring"));
     }
+
 ```
+
  galleon-maven-plugin can be configured with layers to generate differnt wildfly distrubitons:
 
 ```
@@ -473,13 +480,14 @@ galleon.sh install wildfly:current --layers=cdi,jaxrs,jpa --dir=/path/to/wildfly
 ```
 
 ## Summary
+
 When move to microservices/cloud architecture from monolith, we usually want the binary is as small as possible. This requires the wildfly or EAP can be trimmed and only includes the application needs. Galleon can help with this. If you want to slim or trim the wildfly distribution or even provide your custom layer, please give gallen a try. 
 
 ### Reference
 
-- https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/getting_started_with_jboss_eap_for_openshift_online/capability-trimming-eap-foropenshift_default
+- [EAP Galleon doc](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/getting_started_with_jboss_eap_for_openshift_online/capability-trimming-eap-foropenshift_default)
 
-- https://github.com/wildfly/wildfly/blob/master/testsuite/layers/
+- [Galleon WFLY layer test](https://github.com/wildfly/wildfly/blob/master/testsuite/layers/)
  
 - https://docs.wildfly.org/galleon
 
