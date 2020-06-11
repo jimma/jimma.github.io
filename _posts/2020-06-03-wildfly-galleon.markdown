@@ -479,7 +479,8 @@ When move to microservices/cloud architecture from monolith, we usually want the
 
 - https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/getting_started_with_jboss_eap_for_openshift_online/capability-trimming-eap-foropenshift_default
 
-- 
+- https://github.com/wildfly/wildfly/blob/master/testsuite/layers/
+ 
 - https://docs.wildfly.org/galleon
 
 
