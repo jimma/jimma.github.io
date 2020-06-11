@@ -1,4 +1,4 @@
- ---
+---
 layout:     page
 title:      "Use galleon to customize and install Wildfly"
 subtitle:   ""
