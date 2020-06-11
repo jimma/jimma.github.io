@@ -22,7 +22,7 @@ JBoss modules installed.
 Configurations generated. 
 Feature pack installed.
 ```
-**gallon.sh** successfully fetch everything from maven repo and install wildfly-core server under this empty dir. The installation log shows the feature pack is resolved and installed. What's the magic behind this simple CLI execution ? Open this galleon pack file wildfly-core-galleon-pack-12.0.1.Final-SNAPSHOT.zip, it shows:
+**gallon.sh** successfully fetch everything from maven repo and install wildfly-core server under this empty dir. The installation log shows the feature pack is resolved and installed. What's the magic behind this simple CLI execution ? Open this galleon pack file wildfly-core-galleon-pack-12.0.0.Final.zip, it shows:
 
 ![wildflycoregalleonpack.zip](/img/galleon/wildflycorepack.png)
 
