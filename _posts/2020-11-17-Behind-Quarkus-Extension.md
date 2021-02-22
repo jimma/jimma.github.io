@@ -275,7 +275,8 @@ public class BannerProcessor$recordBanner-1279842229 implements StartupTask {
         var1.putValue("proxykey16", var6);
     }
 }
-``` 
+```
+
 @BuildStep Indicates that a given method is a build step that is run at deployment time to 
 create the runtime output. Build steps are run concurrently at augmentation time to augment
 the application. They use a producer/consumer model, where a step is guaranteed not to be 
@@ -344,7 +345,7 @@ After looking at the above javadoc, we can look at BannerProcess line by line.
  > -Objects with a constructor annotated with @RecordableConstructor with parameter names that match field names 
  > -Any arbitrary object via the io.quarkus.deployment.recording.RecorderContext.registerSubstitution(Class, Class, Class) mechanism 
  > -arrays, lists and maps of the above
- 
+
 This annotation simply tells Quarkus, to be sepcific RuntimeRecorderImpl to generate byte code runtime/boot
 class to start the the server side components. 
 
