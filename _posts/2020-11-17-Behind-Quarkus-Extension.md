@@ -323,9 +323,10 @@ After looking at the above javadoc, we can look at BannerProcess line by line.
           according to the {@linkplain #phase() phase} of the value, and BannerRecorder here is injected. 
 - Line 8: ConsoleFormatterBannerBuildItem extends SimpleBuildItem is the return value , it indicts this build step 
           produce ConsoleFormatterBannerBuildItem. This BuildItem will be finally consumed in LoggingResourceProcessor
-          and print out to console. 
- 
- #### @Record
+          and print out to console.
+
+
+### @Record
  
  From javadoc it explains this annotation is mainly for bytecode generation:
  > Indicates that this BuildStep method will also output recorded bytecode. If this annotation 
