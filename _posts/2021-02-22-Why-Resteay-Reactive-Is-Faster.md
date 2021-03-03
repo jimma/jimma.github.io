@@ -164,11 +164,11 @@ instead of using the reflection method call like :
 reflectMethod.invoke(targetObject, args);
 ```
 
-### Match jackson reader/writer in build time
-The another job finished in build time by resetasy-reactive is get the correct reader/writer to read/write 
+### Match jackson reader/writer once instead of each request
+The another job finished in build and start time by resteasy-reactive is get the correct reader/writer to read/write 
 message. It is scanning the resource method annotation , analyzing the @Consume @Produce annotation value to 
 find the correct component to read/write the message. From the generate byte code, the Jackson reader and writer
-has been selected and directly set to runtime code :
+alone with other builtin reader and writer will be added to runtime code:
 ```java
       BeanFactory var35 = ((ResteasyReactiveCommonRecorder)var6).factory("io.quarkus.resteasy.reactive.jackson.runtime.serialisers.JacksonMessageBodyWriter", (BeanContainer)var34);
       var1.putValue("proxykey62", var35);
@@ -182,6 +182,9 @@ has been selected and directly set to runtime code :
       Boolean var40 = Boolean.valueOf((boolean)0);
       ((ResourceWriter)var37).setBuiltin((Boolean)var40);
 ``` 
+There is a FixedProduceHandler selects this jackson writer during bootstrap and set there to write each response:
+![reactive-writer](/img/qreactive/reactive-writer.png)
+
 resteasy extension selects the writer as JAXRS spec defined in section 3.8 in runtime. This still consumes a lot of cpu time as
 the following profiler stack shows:
 
