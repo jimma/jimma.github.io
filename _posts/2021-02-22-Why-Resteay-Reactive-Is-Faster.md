@@ -105,7 +105,7 @@ Transfer/sec:      1.29MB
 
 What does it lead to this result and resteasy-reactive gets this big performance result? These things could be the 
 key success factors.   
-### Match resource method with Request URI in build time
+### Match resource method with Request URI in build time 
 For a jaxrs implementation, it always needs to dispatch the request URI to resource method. In JaxRS spec, there is detailed 
 algorithm to talk about how to match request with resource method(If you are interested, please look at JSR 399 section 3.7)
 resteasy-reactive extension moves this job to build time. This means the resource method invoker will be generated in byte code 
@@ -127,9 +127,12 @@ public class ResteasyReactiveProcessor$setupEndpoints-1591811826 implements Star
       Object var309 = var1.getValue("proxykey58");
       ((ServerResourceMethod)var304).setInvoker((Supplier)var309);
       ((ServerResourceMethod)var304).setHttpMethod("GET"); 
+       ((ServerResourceMethod)var304).setPath("/person");
       ...
    }
 ```
+With this path, http method info from ServerResourceMethod, it is easy to create a mapper to dispatch each request to resouce invoker 
+when starts server.
 
 resteasy extension relies on Resteasy core function to match the resouce method with the procedure defined in jaxrs spec. 
 Although the matched result will be added to cache and the same request doesn't have to run this match method overtime, it still
